@@ -3,7 +3,7 @@ package phase2;
 import java.util.Scanner;
 
 public class app {
-    // command line application to test code and database
+   
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
