@@ -16,7 +16,17 @@ public class UserSignUp {
     }
 
     public boolean registerUser(String username, String email, String password) {
-        // Check if user already exists (not implemented for simplicity)
+        //check to see if user already exists
+           long count = database.getCollection("users")
+                .countDocuments(Filters.or(
+                        Filters.eq("username", username),
+                        Filters.eq("email", email)
+                ));
+        if (count > 0) {
+            // User already exists
+            System.out.println("A user with the same username or email already exists.");
+            return false;
+        }
         
         // Create a document to represent the user
         Document userDocument = new Document("username", username)
@@ -25,7 +35,7 @@ public class UserSignUp {
         
         // Insert the document into the "users" collection
         database.getCollection("users").insertOne(userDocument);
-        
+        System.out.println("Account succesfully created.");
         return true;
     }
 }
