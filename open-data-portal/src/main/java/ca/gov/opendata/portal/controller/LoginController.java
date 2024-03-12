@@ -20,13 +20,6 @@ public class LoginController {
         this.userAuthenticator = userAuthenticator;
     }
 
-    @GetMapping("/login")
-public String loginForm(Model model) {
-    model.addAttribute("user", new User()); // Ensures a User object is available to the form
-    return "login"; // Returns the name of the Thymeleaf template for the login form
-}
-
-
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
         boolean isAuthenticated = userAuthenticator.authenticateUser(user.getUsername(), user.getPassword());
