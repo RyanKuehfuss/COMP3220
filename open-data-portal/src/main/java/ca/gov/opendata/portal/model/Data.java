@@ -18,10 +18,11 @@ public class Data {
     }
 
     // Constructor with parameters
-    public Data(String title, String description, String filePath, String ownerId) {
+    public Data(String title, String description, String filePath, String id, String ownerId) {
         this.title = title;
         this.description = description;
         this.filePath = filePath;
+        this.id = id;
         this.ownerId = ownerId;
     }
 
