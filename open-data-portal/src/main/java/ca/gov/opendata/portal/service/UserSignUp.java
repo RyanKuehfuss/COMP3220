@@ -6,7 +6,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 
-
+@service
 public class UserSignUp {
     private MongoClient mongoClient;
     private MongoDatabase database;
