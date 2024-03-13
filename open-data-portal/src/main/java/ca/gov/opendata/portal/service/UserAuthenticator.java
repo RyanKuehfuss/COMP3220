@@ -6,6 +6,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
+@service
 public class UserAuthenticator {
     private MongoClient mongoClient;
     private MongoDatabase database;
