@@ -85,7 +85,7 @@ public class OpenDataPortalApplication {
                 	ResponseEntity<Data> responseEntity;
                 	
                 	while(signedIn) {                		
-                		System.out.printf("What would you like to do?\n1. Create a dataset\n2. Get all datasets\n3. Get single dataset by ID\n4. Update a dataset\n5. Delete a dataset\n6. Logout\n> ");
+                		System.out.printf("What would you like to do?\n1. Create a dataset\n2. Get all datasets (To be added in next iteration)\n3. Get single dataset by ID (To be added in next iteration)\n4. Update a dataset (To be added in next iteration)\n5. Delete a dataset (To be added in next iteration)\n6. Logout\n> ");
                 		dataEditChoice = scanner.nextInt();
                 		scanner.nextLine();
                 		
