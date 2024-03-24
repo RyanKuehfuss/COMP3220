@@ -1,0 +1,62 @@
+Script started on 2024-03-20 17:04:20-04:00 [TERM="xterm-256color" TTY="/dev/pts/28" COLUMNS="75" LINES="18"]
+[?2004h]0;jaafars@delta: ~[01;32mjaafars@delta[00m:[01;34m~[00m$ sqlplus jaafars
+[?2004l[?2004h
+SQL*Plus: Release 21.0.0.0.0 - Production on Wed Mar 20 17:04:26 2024
+Version 21.8.0.0.0
+
+Copyright (c) 1982, 2022, Oracle.  All rights reserved.
+
+Enter password: [KEnter password: [K[?2004h[KEnter password: [17G[17G[KEnter password: *[18G[18G[KEnter password: **[19G[19G[KEnter password: ***[20G[20G[KEnter password: ****[21G[21G[KEnter password: *****[22G[22G[KEnter password: ******[23G[23G[KEnter password: *******[24G[24G[KEnter password: ********[25G[25G[KEnter password: *********[26G[26G[KEnter password: **********[27G[27G[KEnter password: ***********[28G[28G[KEnter password: ************[29G[29G[KEnter password: *************[30G[30G[17G[?2004l
+[KEnter password: [17G[?2004h
+[K
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> [KSQL> [K[?2004hSQL> [7mselect A.atitle, a.copyrightdate[27m
+[7mfrom Album A[27m
+[7mwhere exists([27m
+[7mselect c.aid from Contains c where c.aid = a.aid having count(*) = 2 group [27m[7mb[27m[7my aid);[27m[A[A[A[Aselect A.atitle, a.copyrightdate
+from Album A
+where exists(
+select c.aid from Contains c where c.aid = a.aid having count(*) = 2 group by aid);[A[A[A[A[?2004l[C[C[C[C[C[K
+[K
+[K
+[K
+[K[A[A[A[A[C[C[C[C[C[?2004hselect A.atitle, a.copyrightdate
+  2  from Album A
+  3  where exists(
+  4  select c.aid from Contains c where c.aid = a.aid having count(*) = 2 group by aid);
+
+ATITLE		     COPYRIGHT
+-------------------- ---------
+Recovery	     08-JUN-04
+
+SQL> [KSQL> [K[?2004hSQL> [7mselect A.atitle, a.copyrightdate[27m
+[7mfrom Album A[27m
+[7mwhere NOT exists([27m
+[7mselect c.aid from Contains c where c.aid = a.aid having count(*) = 2 group [27m[7mb[27m[7my aid);[27m[A[A[A[Aselect A.atitle, a.copyrightdate
+from Album A
+where NOT exists(
+select c.aid from Contains c where c.aid = a.aid having count(*) = 2 group by aid);[A[A[A[A[?2004l[C[C[C[C[C[K
+[K
+[K
+[K
+[K[A[A[A[A[C[C[C[C[C[?2004hselect A.atitle, a.copyrightdate
+  2  from Album A
+  3  where NOT exists(
+  4  select c.aid from Contains c where c.aid = a.aid having count(*) = 2 group by aid);
+
+ATITLE		     COPYRIGHT
+-------------------- ---------
+Revival 	     09-SEP-09
+Welcome 	     03-APR-14
+Good Heart	     14-FEB-17
+
+SQL> [KSQL> [K[?2004hSQL> exit[?2004l[C[C[C[C[C[K[?2004hexit
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+[?2004l[?2004h]0;jaafars@delta: ~[01;32mjaafars@delta[00m:[01;34m~[00m$ exit
+[?2004lexit
+
+Script done on 2024-03-20 17:07:04-04:00 [COMMAND_EXIT_CODE="0"]
