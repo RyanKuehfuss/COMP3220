@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/styles4.css">
+</head>
+<body>
+    <h2>Search Results</h2>
+    <div>
+        <a href="/web/data/new">Add New Data</a>
+    </div>
+    <div>
+        <a href="/web/data/searchform">Search Data</a>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="data : ${dataList}">
+                    <td th:text="${data.title}"></td>
+                    <td th:text="${data.description}"></td>
+                    <td>
+                        <!-- Download Link -->
+                        <a th:href="@{/web/data/download/{id}(id=${data.id})}" th:if="${data.filePath != null}">Download</a>
+                        <!-- View Link -->
+                        <a th:href="@{/web/data/view/{id}(id=${data.id})}">View</a>
+                        <!-- Edit Link -->
+                        <a th:href="@{/web/data/edit/{id}(id=${data.id})}">Edit</a>
+                        <!-- Delete Link -->
+                        <a th:href="@{/web/data/delete/{id}(id=${data.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Show message if no results found -->
+        <div th:if="${#lists.isEmpty(dataList)}">No results found.</div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Data Entry</title>
+    <link rel="stylesheet" href="/styles1.css">
+    
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create New Data Entry</h2>
+        <form action="/web/data/upload" method="post" enctype="multipart/form-data" th:action="@{/web/data/upload}" th:object="${data}" th:csrf>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" th:field="*{title}" required>
+            </div>
+            <div class="form-group">
+                <label for="id">id:</label>
+                <textarea id="id" name="id" th:field="*{id}" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" th:field="*{description}" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="file">File:</label>
+                <input type="file" id="file" name="file" required>
+            </div>
+            <div class="form-group">
+                <label for="ownerId">Owner ID:</label>
+                <input type="text" id="ownerId" name="ownerId" th:field="*{ownerId}" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
+    </div>
+</body>
+</html>

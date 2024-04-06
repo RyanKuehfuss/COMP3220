@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>Data List</h2>
+    <div>
+        <a href="/web/data/new">Add New Data</a>
+    </div>
+    <div>
+        <a href="/web/data/searchform">Search Data</a>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="data : ${dataList}">
+                    <td th:text="${data.title}"></td>
+                    <td th:text="${data.description}"></td>
+                    <td>
+                        <a th:href="@{/web/data/download/{id}(id=${data.id})}" th:if="${data.filePath != null}">Download</a>
+                        <a th:href="@{/web/data/view/{id}(id=${data.id})}">View</a>
+                        <a th:href="@{/web/data/edit/{id}(id=${data.id})}">Edit</a>
+                        <a th:href="@{/web/data/delete/{id}(id=${data.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

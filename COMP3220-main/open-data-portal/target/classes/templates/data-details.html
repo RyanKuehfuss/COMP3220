@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Details</title>
+    <link rel="stylesheet" href="/styles2.css">
+</head>
+<body>
+    <h2>Data Details</h2>
+    <div>
+        <p>Title: <span th:text="${data.title}"></span></p>
+        <p>Description: <span th:text="${data.description}"></span></p>
+        <div th:if="${data.filePath}">
+            <p>File Content:</p>
+            <pre><code th:text="${fileContent}"></code></pre>
+        </div>
+    </div>
+    <div>
+        <a href="/web/data/view/{id}" th:href="@{/web/data/view/{id}(id=${data.id})}">View</a>
+        <a href="/web/data/edit/{id}" th:href="@{/web/data/edit/{id}(id=${data.id})}">Edit</a>
+        <a href="/web/data/delete/{id}" th:href="@{/web/data/delete/{id}(id=${data.id})}">Delete</a>
+    </div>
+</body>
+</html>
